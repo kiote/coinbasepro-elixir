@@ -1,4 +1,8 @@
 defmodule CoinbasePro do
+  @moduledoc """
+  General API
+  """
+
   use Tesla
 
   plug Tesla.Middleware.BaseUrl, "https://api-public.sandbox.pro.coinbase.com"
