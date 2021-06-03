@@ -1,5 +1,7 @@
 # CoinbasePro
 
+[![codecov](https://codecov.io/gh/kiote/coinbasepro-elixir/branch/master/graph/badge.svg)](https://codecov.io/gh/kiote/coinbasepro-elixir)
+
 Elixir client library for [CoinbasePro](https://docs.pro.coinbase.com/)
 
 ## Installation
