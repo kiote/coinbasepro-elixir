@@ -1,6 +1,6 @@
 # CoinbasePro
 
-**TODO: Add description**
+Elixir client library for [CoinbasePro](https://docs.pro.coinbase.com/)
 
 ## Installation
 
