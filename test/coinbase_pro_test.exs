@@ -3,6 +3,6 @@ defmodule CoinbaseProTest do
   doctest CoinbasePro
 
   test "greets the world" do
-    assert CoinbasePro.hello() == :world
+    assert CoinbasePro.products() == :world
   end
 end

@@ -1,18 +1,17 @@
 defmodule CoinbasePro do
-  @moduledoc """
-  Documentation for `CoinbasePro`.
-  """
+  use Tesla
 
-  @doc """
-  Hello world.
+  plug Tesla.Middleware.BaseUrl, "https://api-public.sandbox.pro.coinbase.com"
+  plug Tesla.Middleware.Headers, [{"User-Agent", "CoinbaseProElixirClient"}]
+  plug Tesla.Middleware.JSON
 
-  ## Examples
+  def products() do
+    case get("/products/") do
+      {:ok, %Tesla.Env{status: 200, body: body}} ->
+        {:ok, body}
 
-      iex> CoinbasePro.hello()
-      :world
-
-  """
-  def hello do
-    :world
+      {:ok, %Tesla.Env{status: status, body: body}} ->
+        {:error, body}
+    end
   end
 end
