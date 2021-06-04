@@ -22,6 +22,7 @@ defmodule CoinbasePro.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:httpoison, "~> 1.8"},
       {:excoveralls, "~> 0.10", only: :test},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
