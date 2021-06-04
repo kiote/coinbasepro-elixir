@@ -22,11 +22,6 @@ defmodule CoinbasePro.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tesla, "~> 1.4.0"},
-      # optional, but recommended adapter
-      {:hackney, "~> 1.17.0"},
-      # optional, required by JSON middleware
-      {:jason, ">= 1.0.0"},
       {:excoveralls, "~> 0.10", only: :test},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
