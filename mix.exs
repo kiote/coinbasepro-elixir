@@ -23,9 +23,15 @@ defmodule CoinbasePro.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.8"},
+
+      # only test deps
       {:excoveralls, "~> 0.10", only: :test},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+
+      # only dev deps
+      {:dialyxir, "~> 1.0", only: :dev, runtime: false},
+
+      # test and dev deps
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 end
