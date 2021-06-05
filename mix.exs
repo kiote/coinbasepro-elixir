@@ -13,8 +13,17 @@ defmodule CoinbasePro.MixProject do
 
   # Run "mix help compile.app" to learn about applications.
   def application do
+    extra_applications = [:logger]
+
+    extra_applications =
+      if Enum.member?([:test], Mix.env()) do
+        [:coinbase_pro_http_mock_server | extra_applications]
+      else
+        extra_applications
+      end
+
     [
-      extra_applications: [:logger],
+      extra_applications: extra_applications,
       mod: {CoinbasePro.Application, []}
     ]
   end
@@ -26,6 +35,8 @@ defmodule CoinbasePro.MixProject do
 
       # only test deps
       {:excoveralls, "~> 0.10", only: :test},
+      {:coinbase_pro_http_mock_server, "~> 0.1", only: :test},
+      # {:coinbase_pro_http_mock_server, path: "../coinbasepro-http-mock-server", only: :test},
 
       # only dev deps
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},

@@ -3,6 +3,6 @@ defmodule CoinbaseProTest do
   doctest CoinbasePro
 
   test "greets the world" do
-    assert CoinbasePro.products() == :world
+    assert %HTTPoison.Response{status_code: 200} = CoinbasePro.products()
   end
 end
