@@ -8,7 +8,7 @@ defmodule CoinbasePro do
   end
 
   defp http_client() do
-    Coinbase.Http.Poison
+    CoinbasePro.Http.Poison
   end
 
   def products() do
