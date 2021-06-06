@@ -1,4 +1,4 @@
-defmodule Coinbase.HttpProtocol do
+defmodule CoinbasePro.HttpProtocol do
   @moduledoc """
   Description of HttpProtocol.
   It is needed in case you want to switch from HTTPoison to something else

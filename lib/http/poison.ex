@@ -1,8 +1,8 @@
-defmodule Coinbase.Http.Poison do
+defmodule CoinbasePro.Http.Poison do
   @moduledoc """
   Implementation of HttpProtocol for HTTPoison
   """
-  alias Coinbase.HttpProtocol
+  alias CoinbasePro.HttpProtocol
 
   @behaviour HttpProtocol
 
