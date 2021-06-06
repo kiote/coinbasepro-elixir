@@ -14,5 +14,6 @@ defmodule CoinbasePro do
   def products() do
     (api_path() <> "/products")
     |> http_client().get()
+    |> http_client().response()
   end
 end

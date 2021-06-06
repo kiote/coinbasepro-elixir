@@ -12,6 +12,6 @@ defmodule Coinbase.Http.Poison do
   end
 
   def response(%HTTPoison.Response{body: body, status_code: status_code}) do
-    %{body: body, status_code: status_code}
+    %{body: Jason.decode!(body), status_code: status_code}
   end
 end
