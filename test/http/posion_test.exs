@@ -7,6 +7,6 @@ defmodule CoinbasePro.Http.PoisonTest do
   end
 
   test "failed response" do
-    assert {:error, _} = get("http://localhost") |> IO.inspect()
+    assert {:error, _} = get("http://localhost")
   end
 end
