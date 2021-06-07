@@ -8,6 +8,7 @@ defmodule CoinbasePro.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
+      dialyzer: dialyzer(),
       deps: deps()
     ]
   end
@@ -45,6 +46,13 @@ defmodule CoinbasePro.MixProject do
 
       # test and dev deps
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 end
