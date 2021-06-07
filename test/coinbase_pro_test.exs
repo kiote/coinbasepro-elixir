@@ -3,6 +3,6 @@ defmodule CoinbaseProTest do
   doctest CoinbasePro
 
   test "receives products list" do
-    assert %{body: [_head | _tail], status_code: 200} = CoinbasePro.products()
+    assert [_head | _tail] = CoinbasePro.products()
   end
 end

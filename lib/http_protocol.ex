@@ -4,12 +4,8 @@ defmodule CoinbasePro.HttpProtocol do
   It is needed in case you want to switch from HTTPoison to something else
   """
   @type url() :: String.t()
-  @type response() ::
-          %{body: String.t(), status_code: integer()}
-          | %{body: list(), status_code: integer()}
-          | %{body: map(), status_code: integer()}
+  @type reason() :: String.t()
+  @type response() :: String.t() | list() | map() | {:error, reason()}
 
-  @callback get(url()) :: map()
-
-  @callback response(map()) :: response()
+  @callback get(url()) :: response()
 end
