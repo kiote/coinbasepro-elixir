@@ -129,12 +129,11 @@ defmodule CoinbaseProTest do
              )
   end
 
-  @tag :only
   test "buy_btc_on" do
-    buy_btc_on(50) |> IO.inspect()
+    buy_btc_on(50)
   end
 
   test "list orders" do
-    orders |> IO.inspect()
+    orders()
   end
 end

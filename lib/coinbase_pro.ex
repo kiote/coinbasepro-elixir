@@ -53,7 +53,7 @@ defmodule CoinbasePro do
   def buy_btc_on(usd_amount) do
     path = "/orders"
 
-    params =
+    body =
       %{
         type: "market",
         side: "buy",
@@ -71,17 +71,14 @@ defmodule CoinbasePro do
         },
         %{
           path: path,
-          body: params,
+          body: body,
           timestamp: System.system_time(:second),
           method: "POST"
         }
       )
 
-    IO.inspect(headers, label: "headers")
-    IO.inspect(params, label: "body")
-
     (api_path() <> path)
-    |> http_client().get(headers)
+    |> http_client().post(body, headers)
   end
 
   @doc """
@@ -121,7 +118,7 @@ defmodule CoinbasePro do
       ) do
     method = String.upcase(method)
     data = "#{timestamp}#{method}#{path}" <> body
-    IO.inspect(data)
+
     hmac_key = :base64.decode(secret_key)
     sign = :crypto.hmac(:sha256, hmac_key, data) |> :base64.encode()
 
