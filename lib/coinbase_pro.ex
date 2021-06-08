@@ -60,7 +60,7 @@ defmodule CoinbasePro do
         product_id: "BTC-USD",
         funds: usd_amount
       }
-      |> Poison.encode!()
+      |> Jason.encode!()
 
     headers =
       signature_headers(

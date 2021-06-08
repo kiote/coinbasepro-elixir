@@ -5,10 +5,10 @@ defmodule CoinbaseProTest do
 
   import CoinbasePro
 
-  # setup do
-  #   on_exit(fn -> :meck.unload() end)
-  #   :ok
-  # end
+  setup do
+    on_exit(fn -> :meck.unload() end)
+    :ok
+  end
 
   test "receives products list" do
     assert [_head | _tail] = products()
