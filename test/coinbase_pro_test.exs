@@ -109,9 +109,10 @@ defmodule CoinbaseProTest do
 
     assert [
              {"CB-ACCESS-KEY", "dummy"},
-             {"CB-ACCESS-SIGN", "6refuUAL4v8BEq5sHM6w7ZG4elMPHeU3aE4JfdBgDuo="},
+             {"CB-ACCESS-SIGN", "qo56ti2wUQKXt5uEdUlu1yxmdqvWF5ccZTu185PyZXw="},
              {"CB-ACCESS-TIMESTAMP", ^mocked_time},
-             {"CB-ACCESS-PASSPHRASE", "too_dummy"}
+             {"CB-ACCESS-PASSPHRASE", "too_dummy"},
+             {"Content-Type", "application/json"}
            ] =
              signature_headers(
                %{
@@ -120,11 +121,19 @@ defmodule CoinbaseProTest do
                  secret_key: :base64.encode("secret_key")
                },
                %{
-                 path: "path",
+                 path: "/accounts",
                  body: "",
                  timestamp: mocked_time,
-                 method: "method"
+                 method: "GET"
                }
              )
+  end
+
+  test "buy_btc_on" do
+    buy_btc_on(50)
+  end
+
+  test "list orders" do
+    orders()
   end
 end

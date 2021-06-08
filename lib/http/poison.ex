@@ -21,6 +21,20 @@ defmodule CoinbasePro.Http.Poison do
     end
   end
 
+  def post(url, body, headers \\ []) do
+    HTTPoison.start()
+
+    case HTTPoison.post(url, body, headers) do
+      {:ok, response} ->
+        decode(response)
+
+      {:error, reason} ->
+        error_string = "Http request failed: #{inspect(reason)}"
+        Logger.error(error_string)
+        {:error, error_string}
+    end
+  end
+
   defp decode(%HTTPoison.Response{body: body}) do
     case Jason.decode(body) do
       {:ok, decoded} ->
