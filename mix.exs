@@ -39,6 +39,7 @@ defmodule CoinbasePro.MixProject do
       # only test deps
       {:excoveralls, "~> 0.10", only: :test},
       {:coinbase_pro_http_mock_server, "~> 0.1.2", only: :test},
+      {:meck, "~> 0.9.2", only: :test},
       # {:coinbase_pro_http_mock_server, path: "../coinbasepro-http-mock-server", only: :test},
 
       # only dev deps
