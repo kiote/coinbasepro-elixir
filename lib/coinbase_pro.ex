@@ -21,17 +21,33 @@ defmodule CoinbasePro do
     |> http_client().get()
   end
 
+  def accounts do
+    path = "/accounts"
+
+    headers =
+      signature_headers(
+        %{
+          api_key: Application.get_env(:coinbase_pro, :api_key),
+          api_passphrase: Application.get_env(:coinbase_pro, :api_passphrase),
+          secret_key: Application.get_env(:coinbase_pro, :secret_key)
+        },
+        %{path: path, body: "", timestamp: System.system_time(:second), method: "GET"}
+      )
+
+    (api_path() <> path)
+    |> http_client().get(headers)
+  end
+
   # see https://docs.pro.coinbase.com/?python#signing-a-message
-  def signature(
+  def signature_headers(
         %{api_key: api_key, api_passphrase: api_passphrase, secret_key: secret_key},
         %{
           path: path,
           body: body,
-          timstamp: timestamp,
+          timestamp: timestamp,
           method: method
         }
       ) do
-    timestamp = System.system_time(:second)
     method = String.upcase(method)
     data = "#{timestamp}#{method}#{path}#{body}"
     hmac_key = :base64.decode(secret_key)

@@ -7,10 +7,10 @@ defmodule CoinbasePro.Http.Poison do
 
   @behaviour HttpProtocol
 
-  def get(url) do
+  def get(url, headers \\ []) do
     HTTPoison.start()
 
-    case HTTPoison.get(url) do
+    case HTTPoison.get(url, headers) do
       {:ok, response} ->
         decode(response)
 
