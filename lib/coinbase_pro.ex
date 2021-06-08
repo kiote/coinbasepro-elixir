@@ -15,4 +15,9 @@ defmodule CoinbasePro do
     (api_path() <> "/products")
     |> http_client().get()
   end
+
+  def get_24h_stats(product) do
+    (api_path() <> "/products/" <> product <> "/stats")
+    |> http_client().get()
+  end
 end
