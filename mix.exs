@@ -35,6 +35,7 @@ defmodule CoinbasePro.MixProject do
     [
       {:jason, "~> 1.2"},
       {:httpoison, "~> 1.8"},
+      {:poison, "~> 4.0"},
 
       # only test deps
       {:excoveralls, "~> 0.10", only: :test},
