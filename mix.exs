@@ -46,6 +46,7 @@ defmodule CoinbasePro.MixProject do
 
       # only dev deps
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
 
       # test and dev deps
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
