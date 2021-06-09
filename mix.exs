@@ -6,6 +6,8 @@ defmodule CoinbasePro.MixProject do
       app: :coinbase_pro,
       version: "0.1.0",
       elixir: "~> 1.11",
+      package: package(),
+      description: description(),
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
       dialyzer: dialyzer(),
@@ -55,5 +57,18 @@ defmodule CoinbasePro.MixProject do
       plt_core_path: "priv/plts",
       plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
+  end
+
+  defp package do
+    [
+      name: "coinbase_pro_elixir",
+      maintainers: ["Ekaterina Krivich"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/kiote/coinbasepro-elixir"}
+    ]
+  end
+
+  defp description do
+    "API client for Coinbase Pro"
   end
 end
