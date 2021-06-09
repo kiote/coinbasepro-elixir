@@ -50,15 +50,15 @@ defmodule CoinbasePro do
   @doc """
   https://docs.pro.coinbase.com/?ruby#place-a-new-order
   """
-  def buy_btc_on(usd_amount) do
+  def buy_btc_on(%{eur: eur_amount}) do
     path = "/orders"
 
     body =
       %{
         type: "market",
         side: "buy",
-        product_id: "BTC-USD",
-        funds: usd_amount
+        product_id: "BTC-EUR",
+        funds: eur_amount
       }
       |> Jason.encode!()
 
@@ -79,31 +79,6 @@ defmodule CoinbasePro do
 
     (api_path() <> path)
     |> http_client().post(body, headers)
-  end
-
-  @doc """
-  https://docs.pro.coinbase.com/?javascript#list-orders
-  """
-  def orders do
-    path = "/orders"
-
-    headers =
-      signature_headers(
-        %{
-          api_key: Application.get_env(:coinbase_pro, :api_key),
-          api_passphrase: Application.get_env(:coinbase_pro, :api_passphrase),
-          secret_key: Application.get_env(:coinbase_pro, :secret_key)
-        },
-        %{
-          path: path,
-          body: "",
-          timestamp: System.system_time(:second),
-          method: "GET"
-        }
-      )
-
-    (api_path() <> path)
-    |> http_client().get(headers)
   end
 
   # see https://docs.pro.coinbase.com/?python#signing-a-message
