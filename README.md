@@ -1,6 +1,7 @@
 # CoinbasePro
 
 [![codecov](https://codecov.io/gh/kiote/coinbasepro-elixir/branch/master/graph/badge.svg)](https://codecov.io/gh/kiote/coinbasepro-elixir)
+[![Hex.pm](https://img.shields.io/hexpm/v/coinbase_pro_elixir.svg?style=flat-square)](https://hex.pm/packages/coinbase_pro_elixir)
 
 Elixir client library for [CoinbasePro](https://docs.pro.coinbase.com/)
 
