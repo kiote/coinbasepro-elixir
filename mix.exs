@@ -36,7 +36,7 @@ defmodule CoinbasePro.MixProject do
   defp deps do
     [
       {:jason, "~> 1.2"},
-      {:httpoison, "~> 1.8"},
+      {:httpoison, "~> 2.0"},
 
       # only test deps
       {:excoveralls, "~> 0.10", only: :test},
